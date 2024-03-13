@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lottery Draw</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container text-center mt-5">
+		<h1>Lottery Draw</h1>
+    	<p> Click the button to generate ticket number.</p>
+    	<div class="row justify-content-center mt-4 mb-4">
+        <button type="button" class="btn btn-success btn-lg" onclick= "myFunction()" data-toggle="modal" data-target="#myModal">Generate</button>
+    </div>
+    <p class="row justify-content-center text-danger" id="result"> </p>
+
+    <div class="modal "id="myModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Result..</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+        <div class="modal-body" id="modalPopBox"> </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+
+      function myFunction(){
+        let arr = ["TE 192","TZ 129","TL 109","TP 139","TA 200","TB 299","TK 300","TC 499","TM 582","TN 600"] ;
+        // Generate a random index
+        var arrayIndex = Math.floor(Math.random() * arr.length);
+
+        // Get the lottery number at the random index
+        var lotteryNumber = arr[arrayIndex];
+
+        // Display result in console
+        console.log("The Winner is : " + lotteryNumber);
+
+        // Display result in html page
+        document.getElementById('result').innerHTML = "The Winner is : " + lotteryNumber ;
+
+        // Display result in modal
+        document.getElementById('modalPopBox').innerHTML = "The Winner is : " + lotteryNumber ;
+      }
+
+    </script>
+</body>
+</html>
